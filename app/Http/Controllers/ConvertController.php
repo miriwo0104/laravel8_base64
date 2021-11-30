@@ -33,7 +33,7 @@ class ConvertController extends Controller
     {
         $postData = $request->validated();
 
-        // base64文字列の最初の部分にmime情報などが合った場合排除
+        // base64文字列のData-URL宣言の削除
         $base64Str = str_replace(' ', '+', preg_replace('/^data:image.*base64,/', '', $postData['decodeBase64Str']));
         // ファイルのデコード
         $decodeFile = base64_decode($base64Str);
@@ -42,7 +42,7 @@ class ConvertController extends Controller
 
         // view表示用データの整形
         $viewData = [
-            'decodeBase64Str' => $postData['decodeBase64Str'],
+            'decodeBase64Str' => $base64Str,
             'mime' => $mime,
         ];
 

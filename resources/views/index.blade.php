@@ -10,7 +10,7 @@
     <header></header>
     <main>
         <div class="encode">
-            <p>ファイル → Base64 へエンコード</p>
+            <h1>ファイル → Base64 へエンコード</h1>
             @error('file')
                 {{ $message }}
             @enderror
@@ -21,12 +21,11 @@
                     <input type="submit" value="変換">
                 </form>
             @else
-                <p>{{ $viewData['encodedBase64Str'] }}</p>
                 <textarea name="" id="" cols="180" rows="10">{{ $viewData['encodedBase64Str'] }}</textarea>
             @endif
         </div>
         <div class="decode">
-            <p>Base64 → ファイル デコード</p>
+            <h1>Base64 → ファイル デコード</h1>
             @error('decodeBase64Str')
                 {{ $message }}
             @enderror
